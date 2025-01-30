@@ -5,20 +5,20 @@ import '@splidejs/react-splide/css'
 import { Skeleton } from "@mui/material";
 
 const Popular = () => {
-    const [popular, setPopular] = useState([])
+  const [popularRecipe, setPopularRecipe] = useState([])
 
     useEffect(() => {
       const getPopular = async ()=>{
         const check = localStorage.getItem('popular')
         if (!check) {
-          setPopular(JSON.parse(check))
+          setPopularRecipe(JSON.parse(check))
         }
         else{
           try {
-            const result = await fetch(`https://api.spoonacular.com/recipes/random?number=6&apiKey=510fdfdcf64b4f6b837b94cce4fe8f27`)
+            const result = await fetch(`https://api.spoonacular.com/recipes/random?number=6&apiKey=cd1d8241efe440779923b50f035f29bb`)
             const data = await result.json()
             localStorage.setItem('popular', JSON.stringify(data.recipes))
-            setPopular(data.recipes)
+            setPopularRecipe(data.recipes)
             console.log(data)
           } catch (error) {
             console.log(error)
@@ -28,7 +28,7 @@ const Popular = () => {
       getPopular()
     }, [])
 
-    if (popular.length === 0) {
+    if (popularRecipe.length === 0) {
       const number = [1,2,3,4,5,6,7,8,9,10]
       return(
         <Splide options= {{
@@ -53,7 +53,7 @@ const Popular = () => {
                 pagination: false,
                 gap: '2rem',
             }}>
-            {popular.map((recipe) => (
+            {popularRecipe.map((recipe) => (
                 <SplideSlide key={recipe.id}>
                     <RecipeCard data={recipe} />
                 </SplideSlide>

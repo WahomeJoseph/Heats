@@ -1,32 +1,31 @@
 import { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import {API_KEY} from '../api/Api.js'
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Skeleton } from "@mui/material";
 
 export function Vegan (){
-
-    const API_KEY = '5fbac6abaac6414ca2c64871fbbe9405';
-    const [vegan, setVegan] = useState([]);
+    const [veganRecipe, setVeganRecipe] = useState([])
 
     useEffect(() => {
         const getVegan = async () => { 
             const check = localStorage.getItem('vegan');
             if(check) {
-                setVegan(JSON.parse(check));
+                setVeganRecipe(JSON.parse(check));
             }
             else {
                 const api = await fetch(`https://api.spoonacular.com/recipes/random?number=10&tags=vegan&apiKey=${API_KEY}`);
                 const data = await api.json();
                 localStorage.setItem('vegan', JSON.stringify(data.recipes));
                 console.log(data);
-                setVegan(data?.recipes);
+                setVeganRecipe(data?.recipes);
             }
         }
         getVegan();
     },[]);
 
-    if(vegan.length === 0) {
+    if(veganRecipe.length === 0) {
         const number = [1,2,3,4,5,6,7,8,9,10];
         return (
             <Splide options={{
@@ -51,7 +50,7 @@ export function Vegan (){
                 pagination: false,
                 gap: '2rem',
             }}>
-            {vegan.map((recipe) => (
+            {veganRecipe.map((recipe) => (
                 <SplideSlide key={recipe.id}>
                     <RecipeCard data={recipe} />
                 </SplideSlide>
