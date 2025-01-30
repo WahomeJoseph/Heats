@@ -4,7 +4,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css'
 import { Skeleton } from "@mui/material";
 
-export const Popular = () => {
+const Popular = () => {
     const [popular, setPopular] = useState([])
 
     useEffect(() => {
@@ -62,3 +62,4 @@ export const Popular = () => {
         </div>
     )
 }
+export default Popular
