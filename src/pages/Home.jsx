@@ -2,7 +2,7 @@
 import React from 'react'
 import { API_KEY } from '../api/Api.js';
 // import Popular from '../components/Popular.jsx'
-// import { Vegan } from '../components/Vegan.jsx'
+import Vegan from '../components/Vegan.jsx'
 import Category from '../components/Category.jsx'
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
     <div>
         {/* <Popular />    */}
         <Category />
-        {/* <Vegan /> */}
+        <Vegan />
     </div>
   )
 }

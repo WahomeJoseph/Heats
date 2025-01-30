@@ -5,7 +5,7 @@ import {API_KEY} from '../api/Api.js'
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Skeleton } from "@mui/material";
 
-export function Vegan (){
+const Vegan = () => {
     const [veganRecipe, setVeganRecipe] = useState([])
 
     useEffect(() => {
