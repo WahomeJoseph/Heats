@@ -9,7 +9,7 @@ export default function Header() {
     <div className="flex flex-row bg-[#f7f4f3] text-[#fffff] p-6 justify-between shadow-md shadow-[#5b2333]">
       <Link to={'/'}>
         <h1 className="flex items-center text-2xl font-semibold gap-1.25 hover:text-[#5438dc] font-satisfy">
-          All Recipes
+          JW Recipes
           <GiSpoon />
         </h1>
       </Link>
