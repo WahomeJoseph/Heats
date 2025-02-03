@@ -15,15 +15,14 @@ const Search = () => {
   return (
     <div className="flex w-full justify-center bg-[#f7f4f3] p-6 mb-10">
       <form onSubmit={handleSubmit} className="flex w-full items-center gap-4 bg-white p-2 rounded shadow-sm">
-        <FaSearch className="text-2xl text-[#5b2333]" />
+        <FaSearch className="text-2xl text-[#5438dc]" />
         <input
           type="text"
-          className="flex-grow-1 p-2 text-[#5b2333] border border-[5b2333] rounded outline-none focus:border-[#5b2333]"
+          className="flex-grow-1 p-2 text-[#5b2333] border border-[#5b2333] rounded outline-none focus:border-[#5b2333]"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Search for your cuisines..."
-        />
-        <button type="submit" className="w-40 p-2 bg-[#5b2333] text-white rounded-md shadow-md hover-shadow-[#f7f4f3] cursor-pointer">
+          placeholder="Search for your cuisines..."/>
+        <button type="submit" className="w-40 p-2 bg-[#5438dc] text-white rounded-md shadow-md hover:rounded-xl cursor-pointer">
           Search
         </button>
       </form>
