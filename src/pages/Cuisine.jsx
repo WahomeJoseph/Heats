@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard';
 import { API_KEY } from '../api/Api';
 import { Skeleton } from '@mui/material';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 const Cuisine = () => {
     
@@ -55,9 +56,23 @@ const Cuisine = () => {
 
     return (
         <div className="flex wrap justify-center mt-8 gap-4 p-10">
+            <Splide options={{
+                perPage: 4,
+                pagination: false,
+                gap: '1rem',
+                breakpoints: {
+                    640: { perPage: 1, gap: '1rem' },
+                    768: { perPage: 2, gap: '1rem' },
+                    1024: { perPage: 3, gap: '1rem' },
+                  }
+              }}>
             {cuisine.map((data) => (
-                <RecipeCard data={data} key={data.id} />
+                <SplideSlide key={cuisine.id}>
+                    <RecipeCard data={data} key={data.id} />
+                </SplideSlide>
+                
             ))}
+        </Splide>
         </div>
     )
 }
