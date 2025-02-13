@@ -60,14 +60,14 @@ const Recipe = () => {
     }
 
     return (
-        <div className="recipe-container-main">
+        <div className="recipe-container-main p-4">
             <h1>{details?.title}</h1>
             <div className="recipe-container">
-                <div className="recipe-container-left">
+                <div className="recipe-container-left m-4 rounded-sm">
                     <img src={details?.image} className='recipe-imgs' />
                 </div>
                 <div className="recipe-container-right">
-                    <div className="btn-container">
+                    <div className="flex btn-container gap-5">
                         <Button 
                             variant='contained' 
                             onClick={() => handleClick('summary')}
